@@ -8,8 +8,5 @@
   },
   "author": "maxlath",
   "license": "MIT",
-  "dependencies": {
-    "cot": "git://github.com/maxlath/cot-node.git#master",
-    "lodash.assign": "^3.2.0"
-  }
+  "dependencies": {}
 }

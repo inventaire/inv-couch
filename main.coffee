@@ -1,21 +1,24 @@
-cot = require 'cot'
-_ =
-  extend: require 'lodash.assign'
+module.exports = couch_ = {}
 
-viewMethods = require './lib/view_methods'
+couch_.mapResult = (res, type)-> res.rows.map (row)-> row[type]
+couch_.mapDoc = (res)-> couch_.mapResult res, 'doc'
+couch_.mapId = (res)-> res.rows.map (row)-> row.id
+couch_.mapValue = (res)-> res.rows.map (row)-> row.value
+couch_.mapValueId = (res)-> res.rows.map (row)-> row.value._id
 
-module.exports = (params)->
-  validatingParams params
+couch_.firstDoc = (docs)-> docs?[0]
 
-  return couchWrapper = (dbName, designDocName)->
-    db = new cot(params).db(dbName)
-    return _.extend db, viewMethods(designDocName)
+couch_.joinOrderedIds = (idA, idB)->
+  if idA < idB then "#{idA}:#{idB}"
+  else "#{idB}:#{idA}"
 
+couch_.ignoreNotFound = (err)->
+  if err?.error is 'not_found' then return
 
-validatingParams = (params)->
-  unless params? then throw new Error 'params object missing'
-  unless typeof params is 'object' then throw new Error "params should be an object (got #{typeof params})"
-  { hostname, port, auth } = params
-  unless hostname? then throw new Error 'params missing: hostname'
-  unless port? then throw new Error 'params missing: port'
-  unless auth? then throw new Error 'params missing: auth'
+couch_.getObjIfSuccess = (db, body)->
+  if db.get? and body.ok
+    return db.get(body.id)
+  else if db.get?
+    throw new Error "#{body.error}: #{body.reason}"
+  else
+    throw new Error "bad db object passed to _.getObjIfSuccess"
