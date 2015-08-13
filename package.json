@@ -1,6 +1,6 @@
 {
   "name": "inv-couch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CouchDB lib for inventaire",
   "main": "main.coffee",
   "scripts": {
