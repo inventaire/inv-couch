@@ -1,0 +1,15 @@
+{
+  "name": "inv-couch",
+  "version": "1.0.0",
+  "description": "CouchDB lib for inventaire",
+  "main": "main.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maxlath",
+  "license": "MIT",
+  "dependencies": {
+    "cot": "git://github.com/maxlath/cot-node.git#master",
+    "lodash": "^3.10.1"
+  }
+}
