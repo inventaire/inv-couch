@@ -1,5 +1,6 @@
 cot = require 'cot'
-_ = require 'lodash'
+_ =
+  extend: require 'lodash.assign'
 
 viewMethods = require './lib/viewMethods'
 

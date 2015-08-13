@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "cot": "git://github.com/maxlath/cot-node.git#master",
-    "lodash": "^3.10.1"
+    "lodash.assign": "^3.2.0"
   }
 }
