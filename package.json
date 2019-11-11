@@ -2,7 +2,7 @@
   "name": "inv-couch",
   "version": "2.0.0",
   "description": "CouchDB lib for inventaire",
-  "main": "main.coffee",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
