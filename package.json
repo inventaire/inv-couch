@@ -1,6 +1,6 @@
 {
   "name": "inv-couch",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "CouchDB lib for inventaire",
   "main": "main.js",
   "files": [
